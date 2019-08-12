@@ -19,3 +19,7 @@ default-character-set = utf8
 default-character-set = utf8
 
 
+how to check?
+su root
+mysql 
+status
