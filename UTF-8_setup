@@ -23,3 +23,7 @@ how to check?
 su root
 mysql 
 status
+
+
+이미 다른 캐릭터로 생성된 경우
+ALTER DATABASE [DB명] DEFAULT CHARACTER SET utf8;
