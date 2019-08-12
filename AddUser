@@ -1,0 +1,49 @@
+CREATE USER 'finley'@'localhost'
+  IDENTIFIED BY 'password';
+GRANT ALL
+  ON *.*
+  TO 'finley'@'localhost'
+  WITH GRANT OPTION;
+
+CREATE USER 'finley'@'%.example.com'
+  IDENTIFIED BY 'password';
+GRANT ALL
+  ON *.*
+  TO 'finley'@'%.example.com'
+  WITH GRANT OPTION;
+
+CREATE USER 'admin'@'localhost'
+  IDENTIFIED BY 'password';
+GRANT RELOAD,PROCESS
+  ON *.*
+  TO 'admin'@'localhost';
+
+CREATE USER 'dummy'@'localhost';
+
+
+
+
+
+The previous example grants privileges at the global level. 
+The next example creates three accounts and grants them access at lower levels; 
+that is, to specific databases or objects within databases. 
+Each account has a user name of custom, but the host name parts differ:
+
+
+CREATE USER 'custom'@'localhost'
+  IDENTIFIED BY 'password';
+GRANT ALL
+  ON bankaccount.*
+  TO 'custom'@'localhost';
+
+CREATE USER 'custom'@'host47.example.com'
+  IDENTIFIED BY 'password';
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP
+  ON expenses.*
+  TO 'custom'@'host47.example.com';
+
+CREATE USER 'custom'@'%.example.com'
+  IDENTIFIED BY 'password';
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP
+  ON customer.addresses
+  TO 'custom'@'%.example.com';
